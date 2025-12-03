@@ -104,7 +104,6 @@ Tu tarea es **refactorizar la arquitectura** de esta aplicación implementando *
 **Entregables**:
 - Código refactorizado con React Query implementado
 - Documento explicando:
-  - Por qué se eligió React Query sobre otras soluciones
   - Estrategia de caché para cada tipo de dato
   - Trade-offs de las decisiones tomadas
 
@@ -147,7 +146,6 @@ src/
 
 - [ ] **Virtualización de tabla**
   - Implementar virtualización para `StockTable` usando `react-window` o `@tanstack/react-virtual`
-  - Justificar la elección de la librería
   - Mantener funcionalidad de paginación o adaptarla a scroll virtual
   - Medir mejora de performance (FPS, tiempo de render inicial)
 
@@ -186,7 +184,6 @@ src/
 
 **Entregables**:
 - Métricas de performance documentadas:
-  - Bundle size antes/después (usar `npm run build` y comparar)
   - Lighthouse scores (Performance, First Contentful Paint, Time to Interactive)
   - React Profiler: tiempo de render, cantidad de re-renders
   - Tiempo de carga inicial
@@ -223,8 +220,9 @@ src/
   - Integrar con React Query para mostrar errores de API
   - Mensajes de error amigables para el usuario
 
-- [ ] **Feedback visual (opcional pero valorado)**
-  - Sistema de toasts/notificaciones para feedback al usuario
+- [ ] **Feedback visual**
+  - Implementar una versión responsive en, como mínimo, una pantalla.
+  - Sistema de toasts/notificaciones para feedback al usuario (opcional pero valorado).
   - Notificar errores de API, éxito de operaciones
   - Mostrar cuando los datos están siendo actualizados en background
 
