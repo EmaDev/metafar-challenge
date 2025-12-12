@@ -5,6 +5,13 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: "/",
   plugins: [react()],
+  resolve: {
+    alias: {
+      "@mui/material/utils": "@mui/material/utils/index.js",
+      "@mui/utils": "@mui/utils/esm/index.js",
+      "@mui/icons-material": "@mui/icons-material/esm/index.js",
+    },
+  },
   preview: {
    port: 8080,
    strictPort: true,
@@ -14,5 +21,14 @@ export default defineConfig({
    strictPort: true,
    host: true,
    origin: "http://0.0.0.0:8080/",
+  },
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./src/test/setupTests.ts",
+    css: true,
+    deps: {
+      inline: [/^@mui/],
+    },
   },
  });

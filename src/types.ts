@@ -1,34 +1,13 @@
-export interface IMetaStockData {
-  symbol: string;
-  interval: string;
-  currency: string;
-  exchange_timezone: string;
-  mic_code: string;
-  exchange: string;
-  type: string;
-}
+import {
+  MetaStockResponse,
+  TimeSeriesResponse,
+  TimeSeriesValue,
+} from "./api/types";
 
-export interface IValuesStockData {
-  datetime: string;
-  open: string;
-  high: string;
-  low: string;
-  close: string;
-  volume: string;
-}
+export type IStock = MetaStockResponse;
+export type IValuesStockData = TimeSeriesValue;
+export type IStockData = TimeSeriesResponse;
 
-export interface IStockData {
-  meta: IMetaStockData;
-  values: IValuesStockData[];
-  status: string;
-}
-
-export interface IStock {
-  symbol: string;
-  name: string;
-  currency: string;
-  type: string;
-}
 interface IOption {
   value: string;
   label: string;
