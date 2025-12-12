@@ -6,6 +6,7 @@ import {
   Chip,
   Box,
   styled,
+  CardActionArea
 } from "@mui/material";
 import { IStock } from "../../types";
 import { ListChildComponentProps } from "react-window";
@@ -34,7 +35,7 @@ export const StockCard: React.FC<
 > = ({ index, style, data }) => {
   const stock = data.items[index];
   const typeMeta = stock ? getStockTypeMeta(stock.type) : null;
-  
+
   if (!stock) return <div style={style} />;
 
   return (
@@ -42,45 +43,48 @@ export const StockCard: React.FC<
       <CardWrapper style={{ height: '100%' }}>
         <StyledCard
           variant="outlined"
-          component={RouterLink}
-          to={`/stock/${stock.symbol}`}
-          sx={{ textDecoration: "none", color: "inherit" }}
         >
-          <CardContent sx={{ pb: '16px !important' }}>
-            <Box display="flex" justifyContent="space-between" alignItems="flex-start" mb={1}>
-              <Box>
-                <Typography variant="h6" component="div" color="primary" fontWeight="bold">
-                  {stock.symbol}
-                </Typography>
-                <Typography variant="body2" color="text.primary" noWrap sx={{ maxWidth: 200 }}>
-                  {stock.name}
-                </Typography>
+          <CardActionArea
+            component={RouterLink}
+            to={`/stock/${stock.symbol}`}
+            sx={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'center' }}
+          >
+            <CardContent sx={{ pb: '16px !important' }}>
+              <Box display="flex" justifyContent="space-between" alignItems="flex-start" mb={1}>
+                <Box>
+                  <Typography variant="h6" component="div" color="primary" fontWeight="bold">
+                    {stock.symbol}
+                  </Typography>
+                  <Typography variant="body2" color="text.primary" noWrap sx={{ maxWidth: 200 }}>
+                    {stock.name}
+                  </Typography>
+                </Box>
+                <Chip label={stock.currency} size="small" variant="outlined" />
               </Box>
-              <Chip label={stock.currency} size="small" variant="outlined" />
-            </Box>
-            <Typography
-              variant="caption"
-              color="text.secondary"
-              sx={{
-                textTransform: "uppercase",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 1,
-              }}
-            >
-              <Chip
-                label={typeMeta?.label || stock.type}
-                size="small"
+              <Typography
+                variant="caption"
+                color="text.secondary"
                 sx={{
-                  height: 22,
-                  fontWeight: 700,
-                  color: typeMeta?.color,
-                  backgroundColor: typeMeta?.backgroundColor,
-                  textTransform: "none",
+                  textTransform: "uppercase",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 1,
                 }}
-              />
-            </Typography>
-          </CardContent>
+              >
+                <Chip
+                  label={typeMeta?.label || stock.type}
+                  size="small"
+                  sx={{
+                    height: 22,
+                    fontWeight: 700,
+                    color: typeMeta?.color,
+                    backgroundColor: typeMeta?.backgroundColor,
+                    textTransform: "none",
+                  }}
+                />
+              </Typography>
+            </CardContent>
+          </CardActionArea>
         </StyledCard>
       </CardWrapper>
     </div>
