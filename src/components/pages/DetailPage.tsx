@@ -21,8 +21,9 @@ import { getCurrentDay, getDateWithOffset } from "../../helpers";
 import { useStockMeta } from "../../hooks/queries/useStockMeta";
 import { useTimeSeries } from "../../hooks/queries/useTimeSeries";
 import StockChartSkeleton from "../molecules/skeletons/StockChartSkeleton";
+import { IChartProps } from "../molecules/StockChart";
 
-const StockChart = lazy(() => import("../molecules/StockChart"));
+const StockChart = lazy<React.FC<IChartProps>>(() => import("../molecules/StockChart"));
 
 const Background = styled("div")(({ theme }) => ({
   minHeight: "100vh",

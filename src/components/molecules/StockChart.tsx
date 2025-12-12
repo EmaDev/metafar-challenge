@@ -5,7 +5,7 @@ import { IStockData, IValuesStockData } from "../../types";
 import { Box, Typography } from "@mui/material";
 import { useMemo } from "react";
 
-interface IChartProps {
+export interface IChartProps {
   stockData: IStockData;
 }
 

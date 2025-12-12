@@ -1,5 +1,5 @@
 import * as React from "react";
-import { FixedSizeList, ListChildComponentProps } from "react-window";
+import { FixedSizeList as List } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import {
   Box,
@@ -21,6 +21,8 @@ import { fetchStockMeta } from "../../services/stockService";
 import { fetchTimeSeries } from "../../services/stockService";
 import { getCurrentDay, getDateWithOffset } from "../../helpers";
 import StockListSkeleton from "../molecules/skeletons/StockListSkeleton";
+
+const FixedSizeList = List as any;
 
 interface StockVirtualListProps {
   items: IStock[];
@@ -118,7 +120,7 @@ export const StockVirtualList: React.FC<StockVirtualListProps> = ({ items, isLoa
               itemData={itemData}
               overscanCount={5} // Renderiza 5 extra para scroll suave
             >
-              {RowComponent as unknown as React.ComponentType<ListChildComponentProps<VirtualListData>>}
+              {RowComponent}
             </FixedSizeList>
           )}
         </AutoSizer>
