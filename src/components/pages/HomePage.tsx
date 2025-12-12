@@ -1,5 +1,5 @@
 import React from "react";
-import { Paper, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { StockTable } from "..";
 import PageContainer from "../layout/PageContainer";
 import {
@@ -12,7 +12,7 @@ const HomePage: React.FC = () => {
   return (
     <HomeBackground>
       <PageContainer>
-        <HomeContentCard component={Paper} elevation={0}>
+        <HomeContentCard elevation={0}>
           <HomeHeaderRow>
             <div>
               <Typography variant="h5" fontWeight={700} gutterBottom>
