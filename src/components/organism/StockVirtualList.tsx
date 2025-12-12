@@ -19,7 +19,7 @@ import { IStock } from "../../types";
 import { queryKeys } from "../../hooks/queries/queryKeys";
 import { fetchStockMeta } from "../../services/stockService";
 import { fetchTimeSeries } from "../../services/stockService";
-import { getCurrentDay, getDateWithOffset } from "../../helpers";
+import { getCurrentDay, getDateWithOffset } from "../../utils/helpers";
 import StockListSkeleton from "../molecules/skeletons/StockListSkeleton";
 
 const FixedSizeList = List as any;

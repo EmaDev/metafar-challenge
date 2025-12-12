@@ -2,7 +2,6 @@
 
 ## Prioridad 0: Higiene y Configuración
 - Mover API key de Twelve Data a `.env` (`VITE_TWELVE_DATA_API_KEY`) y agregar `.env.example`; leer con `import.meta.env` en la capa API.
-- Corregir import roto en `StockTable.tsx` (usa `atomics/` pero la carpeta es `atoms/`) para asegurar builds.
 - Añadir `PROJECT_CONTEXT.md` (ya creado) y mantenerlo actualizado tras cambios relevantes.
 
 ## React Query (TanStack Query)

@@ -1,33 +1,14 @@
 import React from "react";
 import { Chip, Stack, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import { getCurrencyLabel, getStockTypeMeta } from "../../helpers";
+import { getCurrencyLabel, getStockTypeMeta } from "../../utils/helpers";
 import { IStock } from "../../types";
 import { SectionCard } from "../atoms";
+import { MetaRow, Description } from "../styled/stockSummaryCard.styled";
 
 interface StockSummaryCardProps {
   stock?: IStock | null;
   symbol: string;
 }
-
-const MetaRow = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  gap: theme.spacing(1.5),
-  marginTop: theme.spacing(0.5),
-  marginBottom: theme.spacing(1.5),
-  flexWrap: "wrap",
-}));
-
-const Description = styled(Typography)(({ theme }) => ({
-  color: "#4b5563",
-  lineHeight: 1.6,
-  maxWidth: 900,
-  fontSize: 15,
-  [theme.breakpoints.up("md")]: {
-    fontSize: 16,
-  },
-}));
 
 const StockSummaryCard: React.FC<StockSummaryCardProps> = ({
   stock,

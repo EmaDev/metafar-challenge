@@ -67,9 +67,3 @@ VITE_TWELVE_DATA_API_URL=https://api.twelvedata.com
   - Hooks: `useStockList` (mock servicio, cache), `useTimeSeries` (params, cache key).
   - Componentes: `HomePage` (render encabezados), `DetailPage` (estado loading de meta).
 - Ejecutar: `yarn test` o `yarn test:watch`.
-
-## Pendientes / Notas
-- Medir y documentar métricas (Lighthouse, bundle size, profiler) para el challenge.
-- Decidir sobre limpieza de componentes legacy marcados como borrados en git (antiguos atomics/StockPreferenceForm).
-- Alinear la tabla clásica (`atoms/TableRow`) si se quiere la misma UI/pill y link completo que la virtual.
-- Mejorar mensajes de error en modo dev (opcional) y agregar tests de UI adicionales si se requiere más confianza.

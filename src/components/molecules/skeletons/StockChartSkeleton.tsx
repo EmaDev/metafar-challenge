@@ -1,17 +1,10 @@
 import React from "react";
 import { Box, Skeleton, Stack, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
-
-const Card = styled(Box)(({ theme }) => ({
-  borderRadius: 16,
-  backgroundColor: "#ffffff",
-  boxShadow: "0 18px 48px rgba(15, 23, 42, 0.08)",
-  padding: theme.spacing(3),
-}));
+import { ChartSkeletonCard } from "../../styled/stockChartSkeleton.styled";
 
 const StockChartSkeleton: React.FC = () => {
   return (
-    <Card>
+    <ChartSkeletonCard>
       <Stack spacing={2}>
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <Skeleton variant="text" width={180} height={32} />
@@ -22,7 +15,7 @@ const StockChartSkeleton: React.FC = () => {
         </Typography>
         <Skeleton variant="rectangular" height={320} sx={{ borderRadius: 2 }} />
       </Stack>
-    </Card>
+    </ChartSkeletonCard>
   );
 };
 

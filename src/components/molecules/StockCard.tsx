@@ -1,34 +1,10 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  Typography,
-  Chip,
-  Box,
-  styled,
-  CardActionArea
-} from "@mui/material";
+import { CardContent, Typography, Chip, Box, CardActionArea } from "@mui/material";
 import { IStock } from "../../types";
 import { ListChildComponentProps } from "react-window";
 import { Link as RouterLink } from "react-router-dom";
-import { getStockTypeMeta } from "../../helpers";
-
-const CardWrapper = styled('div')({
-  padding: '8px',
-  boxSizing: 'border-box',
-});
-
-const StyledCard = styled(Card)(({ theme }) => ({
-  height: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  transition: 'transform 0.2s, box-shadow 0.2s',
-  '&:hover': {
-    transform: 'scale(1.02)',
-    boxShadow: theme.shadows[4],
-  },
-}));
+import { getStockTypeMeta } from "../../utils/helpers";
+import { CardWrapper, StyledCard } from "../styled/stockCard.styled";
 
 export const StockCard: React.FC<
   ListChildComponentProps<{ items: IStock[]; onHover?: (symbol: string) => void }>

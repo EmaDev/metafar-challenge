@@ -13,34 +13,17 @@ import {
   Chip,
   CircularProgress,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import { BackLink, SectionCard } from "../atoms";
 import StockSummaryCard from "../molecules/StockSummaryCard";
 import PageContainer from "../layout/PageContainer";
-import { getCurrentDay, getDateWithOffset } from "../../helpers";
+import { getCurrentDay, getDateWithOffset } from "../../utils/helpers";
 import { useStockMeta } from "../../hooks/queries/useStockMeta";
 import { useTimeSeries } from "../../hooks/queries/useTimeSeries";
 import StockChartSkeleton from "../molecules/skeletons/StockChartSkeleton";
 import { IChartProps } from "../molecules/StockChart";
+import { DetailBackground, DetailFiltersRow } from "../styled/detailPage.styled";
 
 const StockChart = lazy<React.FC<IChartProps>>(() => import("../molecules/StockChart"));
-
-const Background = styled("div")(({ theme }) => ({
-  minHeight: "100vh",
-  padding: theme.spacing(3, 1.5, 2),
-  [theme.breakpoints.up("md")]: {
-    backgroundColor: "#f4f5f7",
-    padding: theme.spacing(7, 3, 4),
-  },
-}));
-
-const FiltersRow = styled(Grid)(({ theme }) => ({
-  marginTop: theme.spacing(2),
-  marginBottom: theme.spacing(2),
-  [theme.breakpoints.up("md")]: {
-    marginTop: theme.spacing(3),
-  },
-}));
 
 const DetailPage: React.FC = () => {
   const { symbol = "MELI" } = useParams<{ symbol?: string }>();
@@ -76,7 +59,7 @@ const DetailPage: React.FC = () => {
   }
 
   return (
-    <Background>
+    <DetailBackground>
       <PageContainer>
         <BackLink to="/" label="Volver a la descripción general" />
 
@@ -127,7 +110,7 @@ const DetailPage: React.FC = () => {
             )}
 
             <Box component="form" onSubmit={handleSubmit}>
-              <FiltersRow container spacing={1.5}>
+              <DetailFiltersRow container spacing={1.5}>
                 <Grid item xs={12} md={4}>
                   <TextField
                     fullWidth
@@ -185,7 +168,7 @@ const DetailPage: React.FC = () => {
                     </Typography>
                   </Stack>
                 </Grid>
-              </FiltersRow>
+              </DetailFiltersRow>
             </Box>
 
             <Box mt={2}>
@@ -203,7 +186,7 @@ const DetailPage: React.FC = () => {
           </SectionCard>
         </Stack>
       </PageContainer>
-    </Background>
+    </DetailBackground>
   );
 };
 
